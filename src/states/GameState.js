@@ -2,6 +2,10 @@ import RainbowText from 'objects/RainbowText';
 
 class GameState extends Phaser.State {
 
+  preload() {
+    this.load.crossOrigin = 'anonymous'
+  }
+
 	create() {
     this.stage.backgroundColor = "#4488AA";
     let spacing = 80;

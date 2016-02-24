@@ -2,6 +2,7 @@ import GameState from 'states/GameState';
 import $ from "jquery";
 import Boot from 'states/boot';
 import State1 from 'states/state1';
+import BunnyMark from 'states/bunnymark';
 
 class Game extends Phaser.Game {
 
@@ -25,14 +26,15 @@ class Game extends Phaser.Game {
 
   startGame() {
     console.log('start game')
-    this.state.start('state1')
+    this.state.start('bunnymark')
   }
 
 }
 
 Game.states = [
   ['boot', Boot],
-  ['state1', State1]
+  ['state1', State1],
+  ['bunnymark', BunnyMark]
 ]
 
 export default Game;
