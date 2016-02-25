@@ -25,9 +25,9 @@ var OUTPUT_FILE = 'game.js';
 
 var keepFiles = false;
 
-var paths = {
- images: ['assets/images/*.png']
-};
+// var paths = {
+//  images: ['assets/images/*.png']
+// };
 
 /**
  * Simple way to check for development/production mode.
