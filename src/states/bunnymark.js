@@ -40,7 +40,6 @@ class BunnyMark extends GameState {
   }
 
   create() {
-    super.create()
     let sprites = this.game.add.spriteBatch()
     let i = 0
     while (i < count) {
@@ -53,6 +52,7 @@ class BunnyMark extends GameState {
       bunnys.push(bunny)
       i++
     }
+    super.create()
   }
 
   update() {
@@ -77,6 +77,7 @@ class BunnyMark extends GameState {
         bunny.position.y = minY
       }
     }
+    super.update()
   }
 }
 

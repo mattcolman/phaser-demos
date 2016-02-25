@@ -7,10 +7,15 @@ class GameState extends Phaser.State {
   }
 
 	create() {
+    this.game.time.advancedTiming = true
     this.stage.backgroundColor = "#4488AA";
     let spacing = 80;
     let back = this.makeButton('back', spacing, this.world.height - spacing)
     let next = this.makeButton('next', this.world.width - spacing, this.world.height - spacing)
+  }
+
+  update() {
+    this.game.debug.text(this.game.time.fps || '--', 2, 20, "#00ff00", "normal 24px Arial")
   }
 
   makeButton(str, x, y) {
