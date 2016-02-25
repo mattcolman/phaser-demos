@@ -26,7 +26,23 @@ class Game extends Phaser.Game {
 
   startGame() {
     console.log('start game')
-    this.state.start('bunnymark')
+    this.stateIndex = 0
+    this.nextState()
+  }
+
+  nextState() {
+    this.gotoStateByIndex(this.stateIndex + 1)
+  }
+
+  prevState() {
+    this.gotoStateByIndex(this.stateIndex - 1)
+  }
+
+  gotoStateByIndex(index) {
+    index = Math.min(index, Game.states.length-1)
+    index = Math.max(index, 1)
+    this.stateIndex = index
+    this.state.start(Game.states[index][0])
   }
 
 }

@@ -23,6 +23,11 @@ class GameState extends Phaser.State {
 
   handleClick(pointer, e, type) {
     console.log('clicked', type)
+    if (type == 'next') {
+      this.game.nextState()
+    } else if (type == 'back') {
+      this.game.prevState()
+    }
   }
 
 }
