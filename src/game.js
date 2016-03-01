@@ -3,6 +3,7 @@ import $ from "jquery";
 import Boot from 'states/boot';
 import Buttons from 'states/buttons';
 import BunnyMark from 'states/bunnymark';
+import Animations from 'states/animations';
 
 class Game extends Phaser.Game {
 
@@ -49,6 +50,7 @@ class Game extends Phaser.Game {
 
 Game.states = [
   ['boot', Boot],
+  ['animations', Animations],
   ['buttons', Buttons],
   ['bunnymark', BunnyMark]
 ]

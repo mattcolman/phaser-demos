@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "bat/0000",
+	"frame": {"x":84,"y":76,"w":116,"h":122},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":278,"y":361,"w":116,"h":122},
+	"sourceSize": {"w":116,"h":122},
+	"pivot": {"x":-2.39655,"y":-2.95902}
+},
+{
+	"filename": "bat/0001",
+	"frame": {"x":2,"y":2,"w":198,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":237,"y":412,"w":198,"h":72},
+	"sourceSize": {"w":198,"h":72},
+	"pivot": {"x":-1.19697,"y":-5.72222}
+},
+{
+	"filename": "bat/0002",
+	"frame": {"x":2,"y":76,"w":80,"h":132},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":297,"y":428,"w":80,"h":132},
+	"sourceSize": {"w":80,"h":132},
+	"pivot": {"x":-3.7125,"y":-3.24242}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "/Volumes/FTP/mathseeds/ACTIVITIES/nearest10/dev phaser/bat.png/bat.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:79b197d786a71a403d0b95635c39a804:e1b7e79d3196f8a956e9087fecae7887:7701fa4d77073f039a4bfcba279ca81e$"
+}
+}
