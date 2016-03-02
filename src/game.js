@@ -4,6 +4,7 @@ import Boot from 'states/boot';
 import Buttons from 'states/buttons';
 import BunnyMark from 'states/bunnymark';
 import Animations from 'states/animations';
+import Sounds from 'states/sounds';
 
 class Game extends Phaser.Game {
 
@@ -50,6 +51,7 @@ class Game extends Phaser.Game {
 
 Game.states = [
   ['boot', Boot],
+  ['sounds', Sounds],
   ['animations', Animations],
   ['buttons', Buttons],
   ['bunnymark', BunnyMark]

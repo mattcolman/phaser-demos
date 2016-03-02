@@ -7,6 +7,8 @@ class GameState extends Phaser.State {
 	create() {
     this.game.time.advancedTiming = true
     this.stage.backgroundColor = "#4488AA";
+    let txt = this.add.text(this.world.centerX, 50, this.game.state.current, { font: "bold 32px Arial", fill: "#fff"})
+    txt.anchor.set(.5)
     let spacing = 80;
     let back = this.makeButton('back', spacing, this.world.height - spacing)
     let next = this.makeButton('next', this.world.width - spacing, this.world.height - spacing)
