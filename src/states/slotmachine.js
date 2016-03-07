@@ -1,6 +1,7 @@
 import GameState from 'states/GameState';
 import _ from 'lodash';
 import GSAP from 'gsap';
+import Reel from 'states/reel';
 
 class SlotMachine extends GameState {
 
@@ -11,41 +12,27 @@ class SlotMachine extends GameState {
 	create() {
     console.log('SlotMachine States')
 
-    this.line = this.makeLine()
-    this.maxHeight = this.line.height/2
-    this.speed = {y: 50}
-    TweenMax.to(this.speed, 3, {delay: 3, y: 0, ease: Back.easeOut.config(1)})
+    this.reel1 = new Reel(this.game)
+    this.reel2 = new Reel(this.game)
+    this.reel2.x = this.reel1.width
+    this.reel3 = new Reel(this.game)
+    this.reel3.x = this.reel1.width*2
+    this.world.addChild(this.reel1)
+    this.world.addChild(this.reel2)
+    this.world.addChild(this.reel3)
 
+    window.SlotMachine = this;
     super.create()
   }
 
-  render() {
-    this.line.y += this.speed.y
-    if (this.line.y > this.maxHeight) {
-      this.line.y = 0
-    }
-  }
-
-  makeLine() {
-    let group = this.game.add.group(this.world, 'group')
-    let line  = this._makeSingleLine()
-    let line2 = this._makeSingleLine()
-    line2.y = -line.height
-    group.addChild(line)
-    group.addChild(line2)
-    group.part = [line, line2]
-    return group
-  }
-
-  _makeSingleLine() {
-    let numSquares = 4
-    var group = this.game.make.group(null, 'line')
-    let y = 0
-    for (var i = 0; i < numSquares; i++) {
-      let avatar = this.game.add.sprite(0, y, 'avatars', `0${i+1}`, group)
-      y += avatar.height
-    }
-    return group
+  spin() {
+    let tl = new TimelineMax()
+    tl.call(this.reel1.spin, [], this.reel1, 0)
+      .call(this.reel2.spin, [], this.reel2, .1)
+      .call(this.reel3.spin, [], this.reel3, .2)
+      .call(this.reel1.stop, [], this.reel1, 2)
+      .call(this.reel2.stop, [], this.reel2, "+=.1")
+      .call(this.reel3.stop, [], this.reel3, "+=.2")
   }
 
 }
