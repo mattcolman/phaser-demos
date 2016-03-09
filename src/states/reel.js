@@ -1,11 +1,11 @@
 import _ from 'lodash';
-import GSAP from 'gsap';
 
 class Reel extends Phaser.Group {
 
-  constructor(game) {
+  constructor(game, name) {
     super(game, null, 'reel')
 
+    this.name = name;
     this.dummyData = [1, 2, 3] // the final line
     this.makeLine()
     this.maxHeight = this.height/2
@@ -13,14 +13,15 @@ class Reel extends Phaser.Group {
   }
 
   spin() {
+    console.log('spin ' + this.name)
     TweenMax.killTweensOf(this)
     this.y = 0
-    TweenMax.to(this, .25, {y: this.maxHeight, repeat: -1, ease: Linear.easeNone})
+    this.spinner = TweenMax.to(this, .3, {y: this.maxHeight, repeat: -1, ease: Linear.easeNone})
   }
 
   stop() {
-    TweenMax.killTweensOf(this)
-    this.y = 0
+    this.spinner.pause().kill(); // interesting, you actually have to pause before you kill to ensure there's not another tick after this.
+    this.y = 0;
     TweenMax.to(this, .8, {y: this.maxHeight, ease: Back.easeOut.config(1)})
   }
 

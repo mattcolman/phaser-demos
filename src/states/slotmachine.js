@@ -1,6 +1,5 @@
 import GameState from 'states/GameState';
 import _ from 'lodash';
-import GSAP from 'gsap';
 import Reel from 'states/reel';
 
 class SlotMachine extends GameState {
@@ -12,10 +11,10 @@ class SlotMachine extends GameState {
 	create() {
     console.log('SlotMachine States')
 
-    this.reel1 = new Reel(this.game)
-    this.reel2 = new Reel(this.game)
+    this.reel1 = new Reel(this.game, 'reel1')
+    this.reel2 = new Reel(this.game, 'reel2')
     this.reel2.x = this.reel1.width
-    this.reel3 = new Reel(this.game)
+    this.reel3 = new Reel(this.game, 'reel3')
     this.reel3.x = this.reel1.width*2
     this.world.addChild(this.reel1)
     this.world.addChild(this.reel2)
@@ -31,8 +30,8 @@ class SlotMachine extends GameState {
       .call(this.reel2.spin, [], this.reel2, .1)
       .call(this.reel3.spin, [], this.reel3, .2)
       .call(this.reel1.stop, [], this.reel1, 2)
-      .call(this.reel2.stop, [], this.reel2, "+=.1")
-      .call(this.reel3.stop, [], this.reel3, "+=.2")
+      .call(this.reel2.stop, [], this.reel2, 2.1)
+      .call(this.reel3.stop, [], this.reel3, 2.2)
   }
 
 }

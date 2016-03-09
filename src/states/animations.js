@@ -1,6 +1,5 @@
 import GameState from 'states/GameState';
 import _ from 'lodash';
-import GSAP from 'gsap';
 
 class Animations extends GameState {
 
