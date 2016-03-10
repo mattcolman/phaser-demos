@@ -19,10 +19,20 @@ class Reel extends Phaser.Group {
     this.spinner = TweenMax.to(this, .3, {y: this.maxHeight, repeat: -1, ease: Linear.easeNone})
   }
 
-  stop() {
+  stop(results) {
     this.spinner.pause().kill(); // interesting, you actually have to pause before you kill to ensure there's not another tick after this.
     this.y = 0;
+
+    this.setLine(results)
+
     TweenMax.to(this, .8, {y: this.maxHeight, ease: Back.easeOut.config(1)})
+  }
+
+  setLine(results) {
+    var part = this.part[1]
+    for (var i = 0; i < results.length; i++) {
+      part.getChildAt(i).frame = results[i]
+    }
   }
 
   makeLine() {
