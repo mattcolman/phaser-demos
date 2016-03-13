@@ -12,16 +12,31 @@ class SlotMachine extends GameState {
 
 	create() {
     console.log('SlotMachine States')
-
     var tx = 0
+    var reelGroup = this.add.group(this.world, 'reel-group')
+    reelGroup.scale.set(.5, .5)
+
     this.reels = []
     for (var i = 0; i < NUM_REELS; i++) {
       let r = new Reel(this.game, `reel${i}`)
       r.x = tx
       tx += r.width
-      this.world.addChild(r)
+      reelGroup.addChild(r)
       this.reels.push(r)
     }
+
+    var rect = this.make.graphics(0, 0)
+    rect.beginFill(0xFF0000, 1);
+    var w = this.reels[0].tileWidth*NUM_REELS
+    var h = this.reels[0].tileHeight*3
+    rect.drawRect(0, 0, w, h)
+    reelGroup.addChild(rect)
+
+    reelGroup.pivot.set(w/2, h/2)
+    reelGroup.x = this.world.centerX
+    reelGroup.y = this.world.centerY
+
+    reelGroup.mask = rect
 
     window.SlotMachine = this;
     super.create()

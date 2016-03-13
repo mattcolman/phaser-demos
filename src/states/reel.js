@@ -50,11 +50,12 @@ class Reel extends Phaser.Group {
     let y = 0
     for (var i = 0; i < numSquares; i++) {
       let avatar = this.game.add.sprite(0, y, 'avatars', `0${i+1}`, group)
+      this.tileWidth || (this.tileWidth = avatar.width)
+      this.tileHeight || (this.tileHeight = avatar.height)
       y += avatar.height
     }
     return group
   }
-
 }
 
 export default Reel;
